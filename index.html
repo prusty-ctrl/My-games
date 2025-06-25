@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Games</title>
+
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Aapki chuni hui theme */
+            --bg-color-1: #885ea0;
+            --bg-color-2: #a16db4;
+            --card-color: #ccd1d8;
+            --text-dark: #543879;
+            --button-bg: #5c3f81;
+            --button-hover: #7b58a5;
+            --button-active: #513670; /* NAYA: Click ke liye gehra color */
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes moveGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shineAnimation {
+            from { left: -100%; }
+            to { left: 100%; }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2), #6e4b85);
+            background-size: 200% 200%;
+            animation: moveGradient 15s ease infinite;
+            perspective: 1000px;
+        }
+
+        .card-container {
+            background-color: var(--card-color);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .card-container:hover {
+            transform: rotateX(5deg) rotateY(-5deg) scale(1.03);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            animation: fadeInUp 0.5s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out 0.7s forwards;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-button {
+            display: block;
+            background-color: var(--button-bg);
+            color: #e2e8f0;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 600;
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 5px 10px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease-in-out; /* Transition time thoda kam kiya */
+            opacity: 0;
+            animation: fadeInUp 0.5s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-button:nth-child(1) { animation-delay: 0.9s; }
+        .link-button:nth-child(2) { animation-delay: 1.1s; }
+
+        .link-button:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-3px);
+            box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1), 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* NAYA ANIMATION: Click Effect */
+        .link-button:active {
+            background-color: var(--button-active);
+            transform: translateY(0px) scale(0.98);
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shineAnimation 3s ease-in-out infinite;
+        }
+
+        .link-button:nth-child(2)::before {
+            animation-delay: 1.5s;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .card-container {
+                padding: 30px 25px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .card-container:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <h1>My Games🎮</h1>
+        
+        <p class="subtitle">A collection of my projects. Click to play!</p>
+
+        <div class="button-container">
+            <!-- PEHLA GAME BUTTON -->
+            <a href="https://prusty-ctrl.github.io/tttultra/" class="link-button" target="_blank">
+                Tic Tac Toe Ultra
+            </a>
+            
+            <!-- DOOSRA GAME BUTTON -->
+            <a href="GAME_2_KA_LINK_YAHA_DALO" class="link-button" target="_blank">
+                Doosre Game ka Naam
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
